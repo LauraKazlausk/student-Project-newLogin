@@ -56,7 +56,6 @@ let initialData = [
 let localStorageStudentData = JSON.parse(localStorage.getItem('students-data'))
   
 //   let localStorageStudentsData = [];
-
 // localStorage.setItem('students-data', JSON.stringify(initialData));
 // let localStorageStudentData = JSON.parse(localStorage.getItem('localStorageStudentData'))
 // console.log(localStorageStudentData)
@@ -71,12 +70,10 @@ let localStorageStudentData = JSON.parse(localStorage.getItem('students-data'))
   let studentForm = document.querySelector('#student-form');
   let studentsList = document.querySelector('#students-list');
 
-  //cia dedam nauja masyva
+
   localStorageStudentData.map(student => {
     renderSingleStudent(student);
   })
-
-
   function renderSingleStudent(data) {
     let name = data.name;
     let surname = data.surname;
@@ -86,7 +83,6 @@ let localStorageStudentData = JSON.parse(localStorage.getItem('students-data'))
     let itKnowledge = data.itKnowledge;
     let group = data.group;
     let interests = data.interests;
-    
     let inputErrorMessages = studentForm.querySelectorAll('.input-error-message');
     inputErrorMessages.forEach(message => message.remove());
     let requiredInputs = studentForm.querySelectorAll('.required');
@@ -148,7 +144,7 @@ let localStorageStudentData = JSON.parse(localStorage.getItem('students-data'))
 
     let ageElement = document.createElement('p');
     ageElement.innerHTML = `<strong>Age:</strong> <span class="student-age>${age}</span>`;
-console.log(ageElement)
+
     let emailElement = document.createElement('p');
     emailElement.innerHTML = `<strong>Email:</strong> <span class="hidden-area">****</span>`;
 
@@ -223,8 +219,6 @@ console.log(ageElement)
     localStorage.removeItem('interest');
 
   }
-
-
   function changeRangeOutput() {
     let itKnowledgeInput = document.querySelector('#student-it-knowledge');
     let itKnowledgeOutput = document.querySelector('#it-knowledge-output');
@@ -331,8 +325,6 @@ console.log(ageElement)
       interestListElement.append(interestItem);
     });
     
-
-
     interestWrapperElement.append(interestTitleElement, interestListElement);
     let privateInfoButton = document.createElement('button');
     privateInfoButton.textContent = 'Show personal info';
@@ -367,11 +359,6 @@ console.log(ageElement)
     renderAlertMessage(createdStudentText);
     // 3. Kontaktų forma turi išsivalyti.
     event.target.reset();
-
-//1. Localstorage paimti students-data masyva ir ji issiparsinti.
-//2. Sukurti naujo studento objekta pagal pateikta pavyzdi, (pradzioj initialData)
-//3. nauja studento objekta prideti (push) i studentu masyva(kuris gautas is pirmos uzduoties)
-//4. Atnaujinta studentu masyva prideti i localStorage( setItem, stringify nepamirsti)
 
 //1.is localstorage paimti masyva
 let localStorageStudentsData = JSON.parse(localStorage.getItem('students-data'));
@@ -417,14 +404,10 @@ localStorage.setItem('students-data', JSON.stringify(localStorageStudentsData))
     localStorage.removeItem('interest');
 
           });
-
-
   }
   
   changeRangeOutput();
  
-
-
           function renderAlertMessage(text, elementClass) {
             let alertMessage = document.querySelector('#alert-message');
             alertMessage.textContent = text;
@@ -457,8 +440,6 @@ localStorage.setItem('students-data', JSON.stringify(localStorageStudentsData))
     // 5.3.1. Jeigu nėra, tai reikia paslėpti studento elementą (display: none).
     // 5.3.2. Jeigu yra, tai reikia parodyti studento elementą (display: block).
 
-
-
 let nameInput = document.getElementById('student-name');
 let surnameInput = document.getElementById('student-surname');
 let ageInput = document.getElementById('student-age');
@@ -466,10 +447,7 @@ let phoneInput = document.getElementById('student-phone');
 let emailInput = document.getElementById('student-email');
 let itKnowledgeInput = document.getElementById('student-it-knowledge');
 let groupInputs = document.querySelectorAll('[name="group"]');
-let interestInputs = document.querySelectorAll('[name="interest"]');
-
-
-  
+let interestInputs = document.querySelectorAll('[name="interest"]'); 
   // LOCAL STORAGE 2 (naudojant objektą)
   function formDataInLocalStorage(form) {
     let localName = localStorage.getItem('name');
@@ -557,11 +535,3 @@ let interestInputs = document.querySelectorAll('[name="interest"]');
 })
 }
 filterStudents();
-  
-
-
-
-
-  
-
-
